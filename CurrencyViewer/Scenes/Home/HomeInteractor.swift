@@ -13,24 +13,34 @@
 import UIKit
 
 protocol HomeBusinessLogic {
-    func doSomething(request: Home.Something.Request)
+    func prepareItems(request: Home.Items.Request)
+    func prepareSelectedItem(request: Home.SelectedItem.Request)
 }
 
 protocol HomeDataStore {
-    //var name: String { get set }
+    var selectedDate: Date { get set }
 }
 
 class HomeInteractor: HomeBusinessLogic, HomeDataStore {
     var presenter: HomePresentationLogic?
-    var worker: HomeWorker?
-    //var name: String = ""
+    var selectedDate: Date = Date()
+    private var dates = [Date]()
     
-    // MARK: Do something
-    func doSomething(request: Home.Something.Request) {
-        worker = HomeWorker()
-        worker?.doSomeWork()
-        
-        let response = Home.Something.Response()
-        presenter?.presentSomething(response: response)
+    func prepareItems(request: Home.Items.Request) {
+        for step in 0 ... Constants.countOfDate {
+            guard let newDate = Date().removal(value: step, component: .day) else {
+                break
+            }
+            dates.append(newDate)
+        }
+        let stringDates = dates.map { $0.toString(with: .dayMonthYear) }
+        let response = Home.Items.Response(dates: stringDates)
+        presenter?.presentItems(response: response)
+    }
+    
+    func prepareSelectedItem(request: Home.SelectedItem.Request) {
+        selectedDate = dates[request.index]
+        let response = Home.SelectedItem.Response()
+        presenter?.presentSelectedItem(response: response)
     }
 }

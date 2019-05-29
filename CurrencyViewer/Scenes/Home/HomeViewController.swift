@@ -13,12 +13,20 @@
 import UIKit
 
 protocol HomeDisplayLogic: class {
-    func displaySomething(viewModel: Home.Something.ViewModel)
+    func reloadData(viewModel: Home.Items.ViewModel)
+    func displayRateScreen(viewModel: Home.SelectedItem.ViewModel)
 }
 
-class HomeViewController: UIViewController, HomeDisplayLogic {
+class HomeViewController: UIViewController {
     var interactor: HomeBusinessLogic?
     var router: (NSObjectProtocol & HomeRoutingLogic & HomeDataPassing)?
+    
+    @IBOutlet private var tableView: UITableView! {
+        didSet {
+            tableView.registerNibFor(DateTVCell.self)
+        }
+    }
+    private var dates = [String]()
     
     // MARK: Object lifecycle
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -45,31 +53,45 @@ class HomeViewController: UIViewController, HomeDisplayLogic {
         router.dataStore = interactor
     }
     
-    // MARK: Routing
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let scene = segue.identifier {
-            let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
-            if let router = router, router.responds(to: selector) {
-                router.perform(selector, with: segue)
-            }
-        }
-    }
-    
     // MARK: View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        doSomething()
+        interactor?.prepareItems(request: Home.Items.Request())
+    }
+}
+
+extension HomeViewController: HomeDisplayLogic {
+    func reloadData(viewModel: Home.Items.ViewModel) {
+        self.dates = viewModel.dates
+        tableView.reloadData()
     }
     
-    // MARK: Do something
-    //@IBOutlet weak var nameTextField: UITextField!
-    
-    func doSomething() {
-        let request = Home.Something.Request()
-        interactor?.doSomething(request: request)
+    func displayRateScreen(viewModel: Home.SelectedItem.ViewModel) {
+        router?.routeToRateScreen()
+    }
+}
+
+// MARK: UITableViewDataSource
+extension HomeViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return dates.count
     }
     
-    func displaySomething(viewModel: Home.Something.ViewModel) {
-        //nameTextField.text = viewModel.name
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: DateTVCell.self), for: indexPath) as? DateTVCell else {
+            return UITableViewCell()
+        }
+        let date = dates[indexPath.row]
+        cell.configure(text: date)
+        return cell
+    }
+}
+
+// MARK: UITableViewDelegate
+extension HomeViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let request = Home.SelectedItem.Request(index: indexPath.row)
+        interactor?.prepareSelectedItem(request: request)
     }
 }

@@ -13,7 +13,7 @@
 import UIKit
 
 @objc protocol HomeRoutingLogic {
-    //func routeToSomewhere(segue: UIStoryboardSegue?)
+    func routeToRateScreen()
 }
 
 protocol HomeDataPassing {
@@ -25,29 +25,28 @@ class HomeRouter: NSObject, HomeRoutingLogic, HomeDataPassing {
     var dataStore: HomeDataStore?
     
     // MARK: Routing
+    func routeToRateScreen() {
+        let storyboard = UIStoryboard(name: "Rate", bundle: nil)
+        
+        guard let rateViewController = storyboard.instantiateInitialViewController() as? RateViewController,
+        let sourceDataSource = dataStore,
+        var destinationDataSource = rateViewController.router?.dataStore
+        else {
+                return
+        }
+        passDataToRateScreen(source: sourceDataSource, destination: &destinationDataSource)
+        navigateToRateScreen(destination: rateViewController)
+        
+    }
+
     
-    //func routeToSomewhere(segue: UIStoryboardSegue?) {
-    //  if let segue = segue {
-    //    let destinationVC = segue.destination as! SomewhereViewController
-    //    var destinationDS = destinationVC.router!.dataStore!
-    //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-    //  } else {
-    //    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-    //    let destinationVC = storyboard.instantiateViewController(withIdentifier: "SomewhereViewController") as! SomewhereViewController
-    //    var destinationDS = destinationVC.router!.dataStore!
-    //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-    //    navigateToSomewhere(source: viewController!, destination: destinationVC)
-    //  }
-    //}
+     // MARK: Navigation
+    func navigateToRateScreen(destination: RateViewController) {
+        viewController?.show(destination, sender: nil)
+    }
     
-    // MARK: Navigation
-    //func navigateToSomewhere(source: HomeViewController, destination: SomewhereViewController) {
-    //  source.show(destination, sender: nil)
-    //}
-    
-    // MARK: Passing data
-    
-    //func passDataToSomewhere(source: HomeDataStore, destination: inout SomewhereDataStore) {
-    //  destination.name = source.name
-    //}
+     // MARK: Passing data
+    func passDataToRateScreen(source: HomeDataStore, destination: inout RateDataStore) {
+//        destination.name = source.name
+    }
 }

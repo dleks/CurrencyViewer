@@ -13,13 +13,21 @@
 import UIKit
 
 enum Home {
-    // MARK: Use cases
-    enum Something {
-        struct Request {
-        }
+    enum Items {
+        struct Request { }
         struct Response {
+            var dates: [String]
         }
         struct ViewModel {
+            var dates: [String]
         }
+    }
+    
+    enum SelectedItem {
+        struct Request {
+            var index: Int
+        }
+        struct Response { }
+        struct ViewModel { }
     }
 }

@@ -13,15 +13,20 @@
 import UIKit
 
 protocol HomePresentationLogic {
-    func presentSomething(response: Home.Something.Response)
+    func presentItems(response: Home.Items.Response)
+    func presentSelectedItem(response: Home.SelectedItem.Response)
 }
 
 class HomePresenter: HomePresentationLogic {
     weak var viewController: HomeDisplayLogic?
     
-    // MARK: Do something
-    func presentSomething(response: Home.Something.Response) {
-        let viewModel = Home.Something.ViewModel()
-        viewController?.displaySomething(viewModel: viewModel)
+    func presentItems(response: Home.Items.Response) {
+        let viewModel = Home.Items.ViewModel(dates: response.dates)
+        viewController?.reloadData(viewModel: viewModel)
+    }
+    
+    func presentSelectedItem(response: Home.SelectedItem.Response) {
+        let viewModel = Home.SelectedItem.ViewModel()
+        viewController?.displayRateScreen(viewModel: viewModel)
     }
 }

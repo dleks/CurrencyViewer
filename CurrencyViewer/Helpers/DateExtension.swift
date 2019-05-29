@@ -8,10 +8,8 @@
 
 import Foundation
 enum DateFormat: String {
-    case day = "dd"
-    case year = "yyyy"
-    case month = "MMMM"
-    case dayMonthYear = "YYYY/MM/dd"
+    case dayMonthYear = "dd MMMM YYYY"
+    case yearMonthDay = "YYYY/MM/dd"
 }
 
 extension Date {
@@ -25,5 +23,9 @@ extension Date {
     
     func toString(with format: DateFormat) -> String {
         return Date.formatter(format: format).string(from: self)
+    }
+    
+    func removal(value: Int, component: Calendar.Component) -> Date? {
+        return Calendar.current.date(byAdding: component, value: -value, to: self)
     }
 }
