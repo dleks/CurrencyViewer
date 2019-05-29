@@ -12,5 +12,5 @@ struct Constants {
     struct API {
         static let baseURL = "https://www.cbr-xml-daily.ru/"
     }
-    static let countOfDate = 100
+    static let countOfDate = 10000
 }

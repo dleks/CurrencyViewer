@@ -11,7 +11,6 @@
 		46886D67229DD294002E1D5C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46886D66229DD294002E1D5C /* Assets.xcassets */; };
 		46886D6A229DD294002E1D5C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46886D68229DD294002E1D5C /* LaunchScreen.storyboard */; };
 		46886D7E229DD4F7002E1D5C /* RatePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46886D78229DD4F7002E1D5C /* RatePresenter.swift */; };
-		46886D7F229DD4F7002E1D5C /* RateWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46886D79229DD4F7002E1D5C /* RateWorker.swift */; };
 		46886D80229DD4F7002E1D5C /* RateRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46886D7A229DD4F7002E1D5C /* RateRouter.swift */; };
 		46886D81229DD4F7002E1D5C /* RateModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46886D7B229DD4F7002E1D5C /* RateModels.swift */; };
 		46886D82229DD4F7002E1D5C /* RateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46886D7C229DD4F7002E1D5C /* RateViewController.swift */; };
@@ -44,7 +43,6 @@
 		46886D69229DD294002E1D5C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		46886D6B229DD294002E1D5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		46886D78229DD4F7002E1D5C /* RatePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatePresenter.swift; sourceTree = "<group>"; };
-		46886D79229DD4F7002E1D5C /* RateWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateWorker.swift; sourceTree = "<group>"; };
 		46886D7A229DD4F7002E1D5C /* RateRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateRouter.swift; sourceTree = "<group>"; };
 		46886D7B229DD4F7002E1D5C /* RateModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateModels.swift; sourceTree = "<group>"; };
 		46886D7C229DD4F7002E1D5C /* RateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateViewController.swift; sourceTree = "<group>"; };
@@ -168,12 +166,11 @@
 		46886D77229DD47F002E1D5C /* Rate */ = {
 			isa = PBXGroup;
 			children = (
-				46886D78229DD4F7002E1D5C /* RatePresenter.swift */,
-				46886D79229DD4F7002E1D5C /* RateWorker.swift */,
-				46886D7A229DD4F7002E1D5C /* RateRouter.swift */,
-				46886D7B229DD4F7002E1D5C /* RateModels.swift */,
 				46886D7C229DD4F7002E1D5C /* RateViewController.swift */,
 				46886D7D229DD4F7002E1D5C /* RateInteractor.swift */,
+				46886D78229DD4F7002E1D5C /* RatePresenter.swift */,
+				46886D7A229DD4F7002E1D5C /* RateRouter.swift */,
+				46886D7B229DD4F7002E1D5C /* RateModels.swift */,
 			);
 			path = Rate;
 			sourceTree = "<group>";
@@ -366,7 +363,6 @@
 				46886D7E229DD4F7002E1D5C /* RatePresenter.swift in Sources */,
 				46886DB8229F1217002E1D5C /* UITableViewExtension.swift in Sources */,
 				46886DA3229DE431002E1D5C /* RateService.swift in Sources */,
-				46886D7F229DD4F7002E1D5C /* RateWorker.swift in Sources */,
 				46886D99229DDEDA002E1D5C /* CurrencyModel.swift in Sources */,
 				46886D9D229DE07B002E1D5C /* CurrencyInfoModel.swift in Sources */,
 				46886D81229DD4F7002E1D5C /* RateModels.swift in Sources */,

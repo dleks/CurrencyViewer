@@ -30,9 +30,9 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZMa-YL-JLZ">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.90000000000000002" translatesAutoresizingMaskIntoConstraints="NO" id="ZMa-YL-JLZ">
                                                 <rect key="frame" x="169.66666666666663" y="0.0" width="169.33333333333337" height="20.333333333333332"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -47,9 +47,9 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TV5-gJ-a4K">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.90000000000000002" translatesAutoresizingMaskIntoConstraints="NO" id="TV5-gJ-a4K">
                                                 <rect key="frame" x="169.66666666666663" y="0.0" width="169.33333333333337" height="20.333333333333332"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -64,9 +64,9 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uTU-0z-9A4">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.90000000000000002" translatesAutoresizingMaskIntoConstraints="NO" id="uTU-0z-9A4">
                                                 <rect key="frame" x="169.66666666666663" y="0.0" width="169.33333333333337" height="20.333333333333332"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -74,10 +74,19 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Курс валют не найден" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="527-kb-trV">
+                                <rect key="frame" x="20" y="356" width="335" height="20.333333333333314"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="WB5-K4-eqe" firstAttribute="leading" secondItem="Ped-qO-wrI" secondAttribute="leading" constant="16" id="30w-2g-mmA"/>
+                            <constraint firstItem="527-kb-trV" firstAttribute="leading" secondItem="Ped-qO-wrI" secondAttribute="leading" constant="20" id="38w-V8-2xp"/>
+                            <constraint firstItem="Ped-qO-wrI" firstAttribute="trailing" secondItem="527-kb-trV" secondAttribute="trailing" constant="20" id="cqT-49-WDE"/>
+                            <constraint firstItem="527-kb-trV" firstAttribute="centerY" secondItem="110-BH-lJ5" secondAttribute="centerY" constant="-40" id="dlj-tU-Wqf"/>
                             <constraint firstItem="Ped-qO-wrI" firstAttribute="top" secondItem="WB5-K4-eqe" secondAttribute="bottom" constant="-144" id="ejz-Ny-Tam"/>
                             <constraint firstItem="Ped-qO-wrI" firstAttribute="trailing" secondItem="WB5-K4-eqe" secondAttribute="trailing" constant="20" id="gXN-Y8-K4S"/>
                         </constraints>
@@ -85,6 +94,13 @@
                     </view>
                     <navigationItem key="navigationItem" title="Курс валют" id="gfL-LK-ex6"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="dateLabel" destination="ZMa-YL-JLZ" id="s6d-dD-zSp"/>
+                        <outlet property="dollarLabel" destination="TV5-gJ-a4K" id="I57-eK-yDm"/>
+                        <outlet property="euroLabel" destination="uTU-0z-9A4" id="2Ay-wp-11V"/>
+                        <outlet property="noneLabel" destination="527-kb-trV" id="P3Q-Vj-olM"/>
+                        <outlet property="rateStackView" destination="WB5-K4-eqe" id="yDk-kx-r9M"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="exn-4b-uQm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

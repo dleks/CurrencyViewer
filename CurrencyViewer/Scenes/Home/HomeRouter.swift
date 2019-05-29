@@ -47,6 +47,6 @@ class HomeRouter: NSObject, HomeRoutingLogic, HomeDataPassing {
     
      // MARK: Passing data
     func passDataToRateScreen(source: HomeDataStore, destination: inout RateDataStore) {
-//        destination.name = source.name
+        destination.selectedDate = source.selectedDate
     }
 }

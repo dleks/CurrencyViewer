@@ -13,12 +13,19 @@
 import UIKit
 
 protocol RateDisplayLogic: class {
-    func displaySomething(viewModel: Rate.Something.ViewModel)
+    func displayRateInfo(viewModel: Rate.Info.ViewModel)
+    func displayNoneRate(viewModel: Rate.ErrorInfo.ViewModel)
 }
 
-class RateViewController: UIViewController, RateDisplayLogic {
+class RateViewController: UIViewController{
     var interactor: RateBusinessLogic?
     var router: (NSObjectProtocol & RateRoutingLogic & RateDataPassing)?
+    
+    @IBOutlet private var dateLabel: UILabel!
+    @IBOutlet private var dollarLabel: UILabel!
+    @IBOutlet private var euroLabel: UILabel!
+    @IBOutlet private var rateStackView: UIStackView!
+    @IBOutlet private var noneLabel: UILabel!
     
     // MARK: Object lifecycle
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -45,31 +52,28 @@ class RateViewController: UIViewController, RateDisplayLogic {
         router.dataStore = interactor
     }
     
-    // MARK: Routing
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let scene = segue.identifier {
-            let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
-            if let router = router, router.responds(to: selector) {
-                router.perform(selector, with: segue)
-            }
-        }
-    }
-    
     // MARK: View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        doSomething()
+        noneLabel.isHidden = true
+        rateStackView.isHidden = true
+        let request = Rate.Info.Request()
+        interactor?.prepareRateInfo(request: request)
+    }
+}
+
+// MARK: RateDisplayLogic
+extension RateViewController: RateDisplayLogic {
+    func displayRateInfo(viewModel: Rate.Info.ViewModel) {
+        rateStackView.isHidden = viewModel.isRateInfoHidden
+        dateLabel.text = viewModel.date
+        dollarLabel.text = viewModel.dollar
+        euroLabel.text = viewModel.euro
     }
     
-    // MARK: Do something
-    //@IBOutlet weak var nameTextField: UITextField!
-    
-    func doSomething() {
-        let request = Rate.Something.Request()
-        interactor?.doSomething(request: request)
-    }
-    
-    func displaySomething(viewModel: Rate.Something.ViewModel) {
-        //nameTextField.text = viewModel.name
+    func displayNoneRate(viewModel: Rate.ErrorInfo.ViewModel) {
+        noneLabel.text = viewModel.text
+        rateStackView.isHidden = viewModel.isRateInfoHidden
+        noneLabel.isHidden = viewModel.isNoneLabelHidden
     }
 }

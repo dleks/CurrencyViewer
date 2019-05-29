@@ -13,13 +13,32 @@
 import UIKit
 
 enum Rate {
-    // MARK: Use cases
-    enum Something {
-        struct Request {
-        }
+    enum Info {
+        struct Request { }
         struct Response {
+            var isRateInfoHidden: Bool
+            var date: String?
+            var dollar: String?
+            var euro: String?
         }
         struct ViewModel {
+            var isRateInfoHidden: Bool
+            var date: String?
+            var dollar: String?
+            var euro: String?
+        }
+    }
+    enum ErrorInfo {
+        struct Request { }
+        struct Response {
+            var text: String
+            var isRateInfoHidden: Bool
+            var isNoneLabelHidden: Bool
+        }
+        struct ViewModel {
+            var text: String
+            var isRateInfoHidden: Bool
+            var isNoneLabelHidden: Bool
         }
     }
 }

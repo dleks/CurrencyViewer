@@ -13,15 +13,27 @@
 import UIKit
 
 protocol RatePresentationLogic {
-    func presentSomething(response: Rate.Something.Response)
+    func presentRateInfo(response: Rate.Info.Response)
+    func presentRateError(response: Rate.ErrorInfo.Response)
 }
 
 class RatePresenter: RatePresentationLogic {
     weak var viewController: RateDisplayLogic?
     
-    // MARK: Do something
-    func presentSomething(response: Rate.Something.Response) {
-        let viewModel = Rate.Something.ViewModel()
-        viewController?.displaySomething(viewModel: viewModel)
+    func presentRateInfo(response: Rate.Info.Response) {
+        let viewModel = Rate.Info.ViewModel(
+            isRateInfoHidden: response.isRateInfoHidden,
+            date: response.date,
+            dollar: response.dollar,
+            euro: response.euro)
+        viewController?.displayRateInfo(viewModel: viewModel)
+    }
+    
+    func presentRateError(response: Rate.ErrorInfo.Response) {
+        let viewModel = Rate.ErrorInfo.ViewModel(
+            text: response.text,
+            isRateInfoHidden: response.isRateInfoHidden,
+            isNoneLabelHidden: response.isNoneLabelHidden)
+        viewController?.displayNoneRate(viewModel: viewModel)
     }
 }
