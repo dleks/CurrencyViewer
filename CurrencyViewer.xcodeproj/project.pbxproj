@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -24,6 +24,14 @@
 		46886D8F229DD50F002E1D5C /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46886D89229DD50F002E1D5C /* HomeInteractor.swift */; };
 		46886D91229DD524002E1D5C /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46886D90229DD524002E1D5C /* Home.storyboard */; };
 		46886D93229DD530002E1D5C /* Rate.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46886D92229DD530002E1D5C /* Rate.storyboard */; };
+		46886D96229DDE8F002E1D5C /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46886D95229DDE8F002E1D5C /* NetworkService.swift */; };
+		46886D99229DDEDA002E1D5C /* CurrencyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46886D98229DDEDA002E1D5C /* CurrencyModel.swift */; };
+		46886D9B229DE00B002E1D5C /* CurrencyListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46886D9A229DE00B002E1D5C /* CurrencyListModel.swift */; };
+		46886D9D229DE07B002E1D5C /* CurrencyInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46886D9C229DE07B002E1D5C /* CurrencyInfoModel.swift */; };
+		46886D9F229DE28B002E1D5C /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46886D9E229DE28B002E1D5C /* Endpoints.swift */; };
+		46886DA1229DE313002E1D5C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46886DA0229DE313002E1D5C /* Constants.swift */; };
+		46886DA3229DE431002E1D5C /* RateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46886DA2229DE431002E1D5C /* RateService.swift */; };
+		46886DAF229EE7DA002E1D5C /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46886DAE229EE7DA002E1D5C /* DateExtension.swift */; };
 		DB2D0C31AF7DEC0D3FCF9949 /* Pods_CurrencyViewer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68861134C6F3346F42C6738D /* Pods_CurrencyViewer.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +55,14 @@
 		46886D89229DD50F002E1D5C /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
 		46886D90229DD524002E1D5C /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		46886D92229DD530002E1D5C /* Rate.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Rate.storyboard; sourceTree = "<group>"; };
+		46886D95229DDE8F002E1D5C /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		46886D98229DDEDA002E1D5C /* CurrencyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyModel.swift; sourceTree = "<group>"; };
+		46886D9A229DE00B002E1D5C /* CurrencyListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyListModel.swift; sourceTree = "<group>"; };
+		46886D9C229DE07B002E1D5C /* CurrencyInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyInfoModel.swift; sourceTree = "<group>"; };
+		46886D9E229DE28B002E1D5C /* Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoints.swift; sourceTree = "<group>"; };
+		46886DA0229DE313002E1D5C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		46886DA2229DE431002E1D5C /* RateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateService.swift; sourceTree = "<group>"; };
+		46886DAE229EE7DA002E1D5C /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DateExtension.swift; path = ../DateExtension.swift; sourceTree = "<group>"; };
 		68861134C6F3346F42C6738D /* Pods_CurrencyViewer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CurrencyViewer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7678BADC48D93D6EC4408AA4 /* Pods-CurrencyViewer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CurrencyViewer.release.xcconfig"; path = "Target Support Files/Pods-CurrencyViewer/Pods-CurrencyViewer.release.xcconfig"; sourceTree = "<group>"; };
 		A73ABA5C9DBFB6EE1DD8A376 /* Pods-CurrencyViewer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CurrencyViewer.debug.xcconfig"; path = "Target Support Files/Pods-CurrencyViewer/Pods-CurrencyViewer.debug.xcconfig"; sourceTree = "<group>"; };
@@ -87,6 +103,7 @@
 			children = (
 				46886D71229DD39A002E1D5C /* Helpers */,
 				46886D75229DD41D002E1D5C /* Storyboards */,
+				46886D94229DDE6C002E1D5C /* Network */,
 				46886D73229DD3C6002E1D5C /* Scenes */,
 				46886D72229DD3AE002E1D5C /* Resources */,
 			);
@@ -96,6 +113,8 @@
 		46886D71229DD39A002E1D5C /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				46886DB1229EF6FA002E1D5C /* Constants */,
+				46886DB0229EE7DE002E1D5C /* Extension */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -155,6 +174,43 @@
 			path = Rate;
 			sourceTree = "<group>";
 		};
+		46886D94229DDE6C002E1D5C /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				46886D97229DDE99002E1D5C /* Model */,
+				46886D95229DDE8F002E1D5C /* NetworkService.swift */,
+				46886DA2229DE431002E1D5C /* RateService.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		46886D97229DDE99002E1D5C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				46886D98229DDEDA002E1D5C /* CurrencyModel.swift */,
+				46886D9A229DE00B002E1D5C /* CurrencyListModel.swift */,
+				46886D9C229DE07B002E1D5C /* CurrencyInfoModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		46886DB0229EE7DE002E1D5C /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				46886DAE229EE7DA002E1D5C /* DateExtension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		46886DB1229EF6FA002E1D5C /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				46886D9E229DE28B002E1D5C /* Endpoints.swift */,
+				46886DA0229DE313002E1D5C /* Constants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
 		CDC53D366AF1D39FA97EDE51 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -169,7 +225,6 @@
 				A73ABA5C9DBFB6EE1DD8A376 /* Pods-CurrencyViewer.debug.xcconfig */,
 				7678BADC48D93D6EC4408AA4 /* Pods-CurrencyViewer.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -290,17 +345,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				46886D82229DD4F7002E1D5C /* RateViewController.swift in Sources */,
+				46886DAF229EE7DA002E1D5C /* DateExtension.swift in Sources */,
+				46886DA1229DE313002E1D5C /* Constants.swift in Sources */,
 				46886D8B229DD50F002E1D5C /* HomeWorker.swift in Sources */,
 				46886D80229DD4F7002E1D5C /* RateRouter.swift in Sources */,
 				46886D7E229DD4F7002E1D5C /* RatePresenter.swift in Sources */,
+				46886DA3229DE431002E1D5C /* RateService.swift in Sources */,
 				46886D7F229DD4F7002E1D5C /* RateWorker.swift in Sources */,
+				46886D99229DDEDA002E1D5C /* CurrencyModel.swift in Sources */,
+				46886D9D229DE07B002E1D5C /* CurrencyInfoModel.swift in Sources */,
 				46886D81229DD4F7002E1D5C /* RateModels.swift in Sources */,
+				46886D96229DDE8F002E1D5C /* NetworkService.swift in Sources */,
 				46886D83229DD4F7002E1D5C /* RateInteractor.swift in Sources */,
 				46886D8F229DD50F002E1D5C /* HomeInteractor.swift in Sources */,
+				46886D9B229DE00B002E1D5C /* CurrencyListModel.swift in Sources */,
 				46886D60229DD293002E1D5C /* AppDelegate.swift in Sources */,
 				46886D8A229DD50F002E1D5C /* HomePresenter.swift in Sources */,
 				46886D8C229DD50F002E1D5C /* HomeRouter.swift in Sources */,
 				46886D8D229DD50F002E1D5C /* HomeModels.swift in Sources */,
+				46886D9F229DE28B002E1D5C /* Endpoints.swift in Sources */,
 				46886D8E229DD50F002E1D5C /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
