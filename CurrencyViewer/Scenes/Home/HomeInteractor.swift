@@ -15,6 +15,7 @@ import UIKit
 protocol HomeBusinessLogic {
     func prepareItems(request: Home.Items.Request)
     func prepareSelectedItem(request: Home.SelectedItem.Request)
+    func prepareBatch(request: Home.Items.Request)
 }
 
 protocol HomeDataStore {
@@ -27,7 +28,22 @@ class HomeInteractor: HomeBusinessLogic, HomeDataStore {
     var dates = [Date]()
     
     func prepareItems(request: Home.Items.Request) {
-        for step in 0 ... Constants.countOfDate {
+        updateDates(startIndex: 0, endIndex: Constants.batchOfDate)
+    }
+    
+    func prepareSelectedItem(request: Home.SelectedItem.Request) {
+        selectedDate = dates[request.index]
+        let response = Home.SelectedItem.Response()
+        presenter?.presentSelectedItem(response: response)
+    }
+    
+    func prepareBatch(request: Home.Items.Request) {
+        let lastIndex = dates.count - 1
+        updateDates(startIndex: lastIndex, endIndex: lastIndex + Constants.batchOfDate)
+    }
+   
+    private func updateDates(startIndex: Int, endIndex: Int) {
+        for step in startIndex...endIndex {
             guard let newDate = Date().removal(value: step, component: .day) else {
                 break
             }
@@ -36,11 +52,5 @@ class HomeInteractor: HomeBusinessLogic, HomeDataStore {
         let stringDates = dates.map { $0.toString(with: .dayMonthYear) }
         let response = Home.Items.Response(dates: stringDates)
         presenter?.presentItems(response: response)
-    }
-    
-    func prepareSelectedItem(request: Home.SelectedItem.Request) {
-        selectedDate = dates[request.index]
-        let response = Home.SelectedItem.Response()
-        presenter?.presentSelectedItem(response: response)
     }
 }

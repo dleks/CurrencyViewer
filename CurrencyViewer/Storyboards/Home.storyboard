@@ -30,6 +30,7 @@
                                 <connections>
                                     <outlet property="dataSource" destination="0E2-p7-UrM" id="79b-hP-MD5"/>
                                     <outlet property="delegate" destination="0E2-p7-UrM" id="3mW-2X-stD"/>
+                                    <outlet property="prefetchDataSource" destination="0E2-p7-UrM" id="AQO-63-SJl"/>
                                 </connections>
                             </tableView>
                         </subviews>

@@ -85,6 +85,7 @@ extension HomeViewController: UITableViewDataSource {
         cell.configure(text: date)
         return cell
     }
+    
 }
 
 // MARK: UITableViewDelegate
@@ -93,5 +94,16 @@ extension HomeViewController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         let request = Home.SelectedItem.Request(index: indexPath.row)
         interactor?.prepareSelectedItem(request: request)
+    }
+}
+
+// MARK: UITableViewDataSourcePrefetching
+extension HomeViewController: UITableViewDataSourcePrefetching {
+    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
+        for indexPath in indexPaths {
+            if indexPath.row >= dates.count - 1 {
+                interactor?.prepareBatch(request: Home.Items.Request())
+            }
+        }
     }
 }
