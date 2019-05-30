@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hX8-ih-dP9">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--CurrencyViewer-->
+        <scene sceneID="4IT-mG-b9J">
+            <objects>
+                <viewController restorationIdentifier="HomeViewController" storyboardIdentifier="HomeViewController" id="0E2-p7-UrM" customClass="HomeViewController" customModule="CurrencyViewer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0ob-YY-WRq">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Выберите дату для просмотра курса валют" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KVP-AK-Zwj">
+                                <rect key="frame" x="20" y="112" width="335" height="48"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MFB-br-tQ0">
+                                <rect key="frame" x="0.0" y="172" width="375" height="640"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="0E2-p7-UrM" id="79b-hP-MD5"/>
+                                    <outlet property="delegate" destination="0E2-p7-UrM" id="3mW-2X-stD"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="MFB-br-tQ0" firstAttribute="leading" secondItem="KyE-9P-afT" secondAttribute="leading" id="Hvy-aw-uSK"/>
+                            <constraint firstItem="MFB-br-tQ0" firstAttribute="top" secondItem="KVP-AK-Zwj" secondAttribute="bottom" constant="12" id="enR-Vg-uSN"/>
+                            <constraint firstItem="KVP-AK-Zwj" firstAttribute="top" secondItem="KyE-9P-afT" secondAttribute="top" constant="24" id="g0o-zs-0lf"/>
+                            <constraint firstItem="KyE-9P-afT" firstAttribute="trailing" secondItem="KVP-AK-Zwj" secondAttribute="trailing" constant="20" id="h33-0e-qBq"/>
+                            <constraint firstItem="KVP-AK-Zwj" firstAttribute="leading" secondItem="KyE-9P-afT" secondAttribute="leading" constant="20" id="hWt-tB-dsU"/>
+                            <constraint firstAttribute="bottom" secondItem="MFB-br-tQ0" secondAttribute="bottom" id="rrS-Pc-6wc"/>
+                            <constraint firstItem="MFB-br-tQ0" firstAttribute="trailing" secondItem="KyE-9P-afT" secondAttribute="trailing" id="wER-AF-4Nf"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="KyE-9P-afT"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="CurrencyViewer" id="J03-K5-PxQ"/>
+                    <connections>
+                        <outlet property="tableView" destination="MFB-br-tQ0" id="cLh-Qz-ssf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yje-oy-RZR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1013.6" y="75.369458128078819"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="xvD-Fn-t5R">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hX8-ih-dP9" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="aF0-rg-neq">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="0E2-p7-UrM" kind="relationship" relationship="rootViewController" id="erm-XU-7dt"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gDw-n2-GC8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="71.200000000000003" y="75.369458128078819"/>
+        </scene>
+    </scenes>
+</document>
