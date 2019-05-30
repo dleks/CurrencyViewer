@@ -24,7 +24,7 @@ protocol HomeDataStore {
 class HomeInteractor: HomeBusinessLogic, HomeDataStore {
     var presenter: HomePresentationLogic?
     var selectedDate: Date = Date()
-    private var dates = [Date]()
+    var dates = [Date]()
     
     func prepareItems(request: Home.Items.Request) {
         for step in 0 ... Constants.countOfDate {

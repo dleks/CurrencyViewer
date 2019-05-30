@@ -21,7 +21,7 @@ class HomeViewController: UIViewController {
     var interactor: HomeBusinessLogic?
     var router: (NSObjectProtocol & HomeRoutingLogic & HomeDataPassing)?
     
-    @IBOutlet private var tableView: UITableView! {
+    @IBOutlet var tableView: UITableView! {
         didSet {
             tableView.registerNibFor(DateTVCell.self)
         }
